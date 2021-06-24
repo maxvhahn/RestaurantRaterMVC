@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantRaterMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace RestaurantRaterMVC.Controllers
 {
     public class RestaurantController : Controller
     {
-        // GET: Restaurant
+        private RestaurantDbContext _db = new RestaurantDbContext();
+        // GET: Restaurant/Index
         public ActionResult Index()
         {
-            return View();
+            //Return this view
+            return View(_db.Restaurants.ToList());
         }
     }
 }
